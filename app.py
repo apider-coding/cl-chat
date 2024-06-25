@@ -7,6 +7,7 @@ OPENAI_API_URL = os.getenv(
     'OPENAI_API_URL', "http://localhost:11434/v1")
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', "no-key")
 MODEL = os.getenv('MODEL', "llama3:8b-instruct-q6_K")
+MODEL_TEMPERATURE = os.getenv('MODEL_TEMPERATURE', 0.7)
 
 
 client = AsyncOpenAI(base_url=OPENAI_API_URL, api_key=OPENAI_API_KEY, )
@@ -14,7 +15,7 @@ cl.instrument_openai()
 
 settings = {
     "model": MODEL,
-    # "temperature": 0.7,
+    "temperature": MODEL_TEMPERATURE,
     # "max_tokens": 500,
     # "top_p": 1,
     # "frequency_penalty": 0,
