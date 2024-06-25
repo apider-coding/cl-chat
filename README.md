@@ -59,5 +59,6 @@ docker run -d \
   -e OPENAI_API_URL='http://host.docker.internal:11434/v1' \
   -e OPENAI_API_KEY='no-key' \
   -e MODEL='llama3:8b-instruct-q6_K' \
+  -e MODEL_TEMPERATURE='0.1' \
   -p 8000:8000 apider/cl-chat:latest
 ```

@@ -9,13 +9,15 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', "no-key")
 MODEL = os.getenv('MODEL', "llama3:8b-instruct-q6_K")
 MODEL_TEMPERATURE = os.getenv('MODEL_TEMPERATURE', 0.7)
 
+print('Parameters: OPENAI_API_URL:', OPENAI_API_URL, ', MODEL:', MODEL, ', MODEL_TEMPERATURE:',
+      MODEL_TEMPERATURE)
 
 client = AsyncOpenAI(base_url=OPENAI_API_URL, api_key=OPENAI_API_KEY, )
 cl.instrument_openai()
 
 settings = {
     "model": MODEL,
-    "temperature": MODEL_TEMPERATURE,
+    "temperature": float(MODEL_TEMPERATURE),
     # "max_tokens": 500,
     # "top_p": 1,
     # "frequency_penalty": 0,
@@ -23,7 +25,7 @@ settings = {
 }
 
 
-@cl.on_chat_start
+@ cl.on_chat_start
 def start_chat():
     cl.user_session.set(
         "message_history",
@@ -31,7 +33,7 @@ def start_chat():
     )
 
 
-@cl.on_message
+@ cl.on_message
 async def main(message: cl.Message):
     message_history = cl.user_session.get("message_history")
     message_history.append({"role": "user", "content": message.content})
