@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.7](https://github.com/apider-coding/cl-chat/compare/v1.0.6...v1.0.7) (2024-06-25)
+
+
+### Bug Fixes
+
+* add MODEL_TEMPERATURE variable ([14e59a5](https://github.com/apider-coding/cl-chat/commit/14e59a5b7d73facc735ef781f35df77ceaa5fb0f))
+
 ### [1.0.6](https://github.com/apider-coding/cl-chat/compare/v1.0.5...v1.0.6) (2024-06-25)
 
 
