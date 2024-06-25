@@ -10,5 +10,4 @@ RUN pip3 --no-cache install -r requirements.txt
 
 ENV PYTHONUNBUFFERED=1
 
-ENTRYPOINT ["python3"]
-CMD ["app.py"]
+CMD ["chainlit", "run", "/app/app.py"]
