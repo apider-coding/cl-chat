@@ -40,3 +40,5 @@ docker run -d \
   -e MODEL='llama3:8b-instruct-q6_K' \
   -p 8000:8000 cl-chat
 ```
+
+Access the app on: http://localhost:8000/
