@@ -2,7 +2,8 @@ from openai import AsyncOpenAI
 import chainlit as cl
 import os
 
-OPENAI_API_URL = os.getenv('OPENAPI_URL', "http://localhost:11434/v1")
+OPENAI_API_URL = os.getenv(
+    'OPENAPI_URL', "http://host.docker.internal:11434/v1")
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', "no-key")
 MODEL = os.getenv('MODEL', "llama3:8b-instruct-q6_K")
 
