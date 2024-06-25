@@ -13,11 +13,11 @@ Any OpenAI API compatible backend can be used instead of ollama.
 - `MODEL_TEMPERATURE` - The temperature to use, default value is: `0.7`
 
 ## Run it
-### locally
 #### Prereqs
 - Install [ollama](https://ollama.com/download)
 - Pull whatever model you want or use suggested: `ollama pull llama3:8b-instruct-q6_K`
 
+### locally
 Install requirements:
 ```bash
 pip install -r requirements.txt
