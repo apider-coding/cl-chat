@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* change to standars en vars ([899dea2](https://github.com/apider-coding/cl-chat/commit/899dea2925bce772895a011e254de69c2389cfaf))
+* change to standard en vars ([899dea2](https://github.com/apider-coding/cl-chat/commit/899dea2925bce772895a011e254de69c2389cfaf))
 * update docs ([63b2e5a](https://github.com/apider-coding/cl-chat/commit/63b2e5a95c272722864feec8a5aefcac2979942b))
 
 ### 1.0.1 (2024-06-25)
