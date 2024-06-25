@@ -1,0 +1,28 @@
+{
+  "name": "cl-chat",
+  "version": "1.0.0",
+  "description": "A simple chanlit inference app",
+  "main": "app.py",
+  "scripts": {
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apider-coding/cl-chat.git"
+  },
+  "keywords": [
+    "openai",
+    "inference",
+    "chainlit",
+    "ollama"
+  ],
+  "author": "filipk73@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apider-coding/cl-chat/issues"
+  },
+  "homepage": "https://github.com/apider-coding/cl-chat#readme",
+  "dependencies": {
+    "standard-version": "^9.5.0"
+  }
+}
