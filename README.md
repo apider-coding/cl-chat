@@ -36,7 +36,9 @@ Access the app on: http://localhost:8000/
 ### with docker
 Build the container image
 
-`docker build -t cl-chat .`
+```bash
+docker build -t cl-chat .
+```
 
 Run the container
 ```bash
