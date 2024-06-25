@@ -51,3 +51,13 @@ docker run -d \
 ```
 
 Access the app on: http://localhost:8000/
+
+#### Or pull the image from dockerhub
+```bash
+docker run -d \
+  --name cl-chat \
+  -e OPENAI_API_URL='http://host.docker.internal:11434/v1' \
+  -e OPENAI_API_KEY='no-key' \
+  -e MODEL='llama3:8b-instruct-q6_K' \
+  -p 8000:8000 apider/cl-chat:latest
+```
