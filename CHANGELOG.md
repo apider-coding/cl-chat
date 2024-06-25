@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.9](https://github.com/apider-coding/cl-chat/compare/v1.0.8...v1.0.9) (2024-06-25)
+
+
+### Bug Fixes
+
+* add parameter output on start ([f52b454](https://github.com/apider-coding/cl-chat/commit/f52b45412135c14c2f7c685d46c108f3f52694cc))
+
 ### [1.0.8](https://github.com/apider-coding/cl-chat/compare/v1.0.7...v1.0.8) (2024-06-25)
 
 ### [1.0.7](https://github.com/apider-coding/cl-chat/compare/v1.0.6...v1.0.7) (2024-06-25)
