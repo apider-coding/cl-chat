@@ -2,10 +2,12 @@ from openai import AsyncOpenAI
 import chainlit as cl
 import os
 
-OPENAPI_URL = os.getenv('OPENAPI_URL', "http://localhost:11434/v1")
+OPENAI_API_URL = os.getenv('OPENAPI_URL', "http://localhost:11434/v1")
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', "no-key")
 MODEL = os.getenv('MODEL', "llama3:8b-instruct-q6_K")
 
-client = AsyncOpenAI(base_url=OPENAPI_URL, api_key="no_key", )
+
+client = AsyncOpenAI(base_url=OPENAI_API_URL, api_key=OPENAI_API_KEY, )
 cl.instrument_openai()
 
 settings = {
