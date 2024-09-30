@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.13](https://github.com/apider-coding/cl-chat/compare/v1.0.12...v1.0.13) (2024-09-30)
+
+
+### Bug Fixes
+
+* add model name ([65639df](https://github.com/apider-coding/cl-chat/commit/65639dffafc068d39a24daa578882654edb0b7b8))
+
 ### [1.0.12](https://github.com/apider-coding/cl-chat/compare/v1.0.11...v1.0.12) (2024-09-30)
 
 
