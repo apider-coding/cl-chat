@@ -6,7 +6,7 @@ OPENAI_API_URL = os.getenv(
     # If running in docker use: "http://host.docker.internal:11434/v1"
     'OPENAI_API_URL', "http://localhost:11434/v1")
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', "no-key")
-MODEL = os.getenv('MODEL', "llama3:8b-instruct-q6_K")
+MODEL = os.getenv('MODEL', "llama3.2:3b-instruct-q8_0")
 MODEL_TEMPERATURE = os.getenv('MODEL_TEMPERATURE', 0.7)
 
 print('Parameters: OPENAI_API_URL:', OPENAI_API_URL, ', MODEL:', MODEL, ', MODEL_TEMPERATURE:',

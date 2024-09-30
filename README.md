@@ -17,7 +17,7 @@ Any OpenAI API compatible backend can be used instead of ollama.
 - Install [ollama](https://ollama.com/download)
 - Pull whatever model you want or use suggested: 
 ```bash
-ollama pull llama3:8b-instruct-q6_K
+ollama pull llama3.2:3b-instruct-q8_0
 ```
 
 ### locally
@@ -46,7 +46,7 @@ docker run -d \
   --name cl-chat \
   -e OPENAI_API_URL='http://host.docker.internal:11434/v1' \
   -e OPENAI_API_KEY='no-key' \
-  -e MODEL='llama3:8b-instruct-q6_K' \
+  -e MODEL='llama3.2:3b-instruct-q8_0' \
   -p 8000:8000 cl-chat
 ```
 
@@ -58,7 +58,7 @@ docker run -d \
   --name cl-chat \
   -e OPENAI_API_URL='http://host.docker.internal:11434/v1' \
   -e OPENAI_API_KEY='no-key' \
-  -e MODEL='llama3:8b-instruct-q6_K' \
+  -e MODEL='llama3.2:3b-instruct-q8_0' \
   -e MODEL_TEMPERATURE='0.5' \
   -p 8000:8000 apider/cl-chat:latest
 ```
