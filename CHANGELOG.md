@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.19](https://github.com/apider-coding/cl-chat/compare/v1.0.18...v1.0.19) (2025-02-01)
+
+
+### Bug Fixes
+
+* multi arch build ([35b2fdd](https://github.com/apider-coding/cl-chat/commit/35b2fdd91dc09a90017c7aeb2b7e23a21e236b82))
+
 ### [1.0.18](https://github.com/apider-coding/cl-chat/compare/v1.0.17...v1.0.18) (2025-02-01)
 
 
