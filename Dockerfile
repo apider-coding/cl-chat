@@ -6,7 +6,6 @@ ADD . /app
 
 WORKDIR /app
 
-# RUN pip3 --no-cache install pydantic==2.10.1
 RUN pip3 --no-cache install -r requirements.txt
 
 ENV PYTHONUNBUFFERED=1
