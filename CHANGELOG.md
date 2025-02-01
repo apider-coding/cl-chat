@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.17](https://github.com/apider-coding/cl-chat/compare/v1.0.16...v1.0.17) (2025-02-01)
+
+
+### Bug Fixes
+
+* update python image ([7be901a](https://github.com/apider-coding/cl-chat/commit/7be901a0a6bda7e0f26e73c61de1128d50d13162))
+
 ### [1.0.16](https://github.com/apider-coding/cl-chat/compare/v1.0.15...v1.0.16) (2025-02-01)
 
 
