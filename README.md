@@ -6,8 +6,7 @@ Any OpenAI API compatible backend can be used instead of ollama.
 
 
 ### Environment variables
-- `OPENAI_API_URL` - The backend to use, default value is: `http://localhost:11434/v1`
-- `OPENAI_API_URL` - If running in Docker Desktop (locally) use `OPENAI_API_URL` = `http://host.docker.internal:11434/v1`
+- `OPENAI_API_URL` - The backend to use, default value is: `http://localhost:11434/v1` - If running in Docker Desktop use: `http://host.docker.internal:11434/v1`
 - `OPENAI_API_KEY` - The API key to use, default value is: `no-key`
 - `MODEL` -  The model to use, default value is: `deepseek-r1:1.5b-qwen-distill-fp16`
 - `MODEL_TEMPERATURE` - The temperature to use, default value is: `0.7`
