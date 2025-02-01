@@ -1,4 +1,4 @@
-FROM python:3.12-slim-buster
+FROM python:3.12-slim
 
 RUN cp -r -f /usr/share/zoneinfo/Europe/Stockholm /etc/localtime
 
