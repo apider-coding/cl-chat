@@ -7,7 +7,7 @@ OPENAI_API_URL = os.getenv(
     'OPENAI_API_URL', "http://localhost:11434/v1")
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', "no-key")
 MODEL = os.getenv('MODEL', "deepseek-r1:1.5b-qwen-distill-fp16")
-MODEL_TEMPERATURE = os.getenv('MODEL_TEMPERATURE', 0.7)
+MODEL_TEMPERATURE = os.getenv('MODEL_TEMPERATURE', 0.5)
 
 print('Parameters: OPENAI_API_URL:', OPENAI_API_URL,
       ', MODEL:', MODEL,
