@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.15](https://github.com/apider-coding/cl-chat/compare/v1.0.14...v1.0.15) (2025-02-01)
+
+
+### Bug Fixes
+
+* update to stream tokens & swap model ([94fa9cd](https://github.com/apider-coding/cl-chat/commit/94fa9cd853e8ca1d986074a20a17ec1cdad060c7))
+
 ### [1.0.14](https://github.com/apider-coding/cl-chat/compare/v1.0.13...v1.0.14) (2024-09-30)
 
 
