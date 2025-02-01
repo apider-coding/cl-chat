@@ -6,13 +6,14 @@ OPENAI_API_URL = os.getenv(
     # If running in docker use: "http://host.docker.internal:11434/v1"
     'OPENAI_API_URL', "http://localhost:11434/v1")
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', "no-key")
-MODEL = os.getenv('MODEL', "llama3.2:3b-instruct-q8_0")
+MODEL = os.getenv('MODEL', "deepseek-r1:1.5b-qwen-distill-fp16")
 MODEL_TEMPERATURE = os.getenv('MODEL_TEMPERATURE', 0.7)
 
-print('Parameters: OPENAI_API_URL:', OPENAI_API_URL, ', MODEL:', MODEL, ', MODEL_TEMPERATURE:',
-      MODEL_TEMPERATURE)
+print('Parameters: OPENAI_API_URL:', OPENAI_API_URL,
+      ', MODEL:', MODEL,
+      ', MODEL_TEMPERATURE:', MODEL_TEMPERATURE)
 
-client = AsyncOpenAI(base_url=OPENAI_API_URL, api_key=OPENAI_API_KEY, )
+client = AsyncOpenAI(base_url=OPENAI_API_URL, api_key=OPENAI_API_KEY)
 cl.instrument_openai()
 
 settings = {
@@ -41,13 +42,20 @@ async def main(message: cl.Message):
     msg = cl.Message(content="")
     await msg.send()
 
-    stream = await client.chat.completions.create(
-        messages=message_history, stream=True, **settings
+    # Initialize the response stream
+    response_stream = await client.chat.completions.create(
+        messages=message_history,
+        stream=True,
+        **settings
     )
 
-    async for part in stream:
+    async for part in response_stream:
         if token := part.choices[0].delta.content or "":
+            # Stream the new token immediately to the message widget
             await msg.stream_token(token)
+            # Update the displayed content with this token
+            if msg.content is None:
+                await cl.get_message(messageId=part.choices[0].message.id).content
 
     message_history.append({"role": "assistant", "content": msg.content})
     await msg.update()
