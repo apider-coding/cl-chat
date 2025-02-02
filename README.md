@@ -4,12 +4,14 @@ This is a streaming chat app using chainlit and local [ollama](https://ollama.ai
 
 Any OpenAI API compatible backend can be used instead of ollama.
 
+Upon start the app will pull available models from `OPENAI_API_URL`/models. It will set the default to the first model in the list.
+
+You can select model & temperature from shat settings box (to tle left in the text input box).
 
 ### Environment variables
 - `OPENAI_API_URL` - The backend to use, default value is: `http://localhost:11434/v1` - If running in Docker Desktop use: `http://host.docker.internal:11434/v1`
 - `OPENAI_API_KEY` - The API key to use, default value is: `no-key`
-- `MODEL` -  The model to use, default value is: `deepseek-r1:1.5b-qwen-distill-fp16`
-- `MODEL_TEMPERATURE` - The temperature to use, default value is: `0.5`
+
 
 ## Run it
 #### Prereqs
@@ -45,8 +47,6 @@ docker run -d \
   --name cl-chat \
   -e OPENAI_API_URL='http://host.docker.internal:11434/v1' \
   -e OPENAI_API_KEY='no-key' \
-  -e MODEL='deepseek-r1:1.5b-qwen-distill-fp16' \
-  -e MODEL_TEMPERATURE='0.5' \
   -p 8000:8000 cl-chat
 ```
 
@@ -58,7 +58,5 @@ docker run -d \
   --name cl-chat \
   -e OPENAI_API_URL='http://host.docker.internal:11434/v1' \
   -e OPENAI_API_KEY='no-key' \
-  -e MODEL='deepseek-r1:1.5b-qwen-distill-fp16' \
-  -e MODEL_TEMPERATURE='0.5' \
   -p 8000:8000 apider/cl-chat:latest
 ```

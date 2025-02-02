@@ -1,44 +1,79 @@
+import requests
 from openai import AsyncOpenAI
 import chainlit as cl
+from chainlit.input_widget import Select, Switch, Slider
 import os
+
 
 OPENAI_API_URL = os.getenv(
     # If running in docker use: "http://host.docker.internal:11434/v1"
     'OPENAI_API_URL', "http://localhost:11434/v1")
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', "no-key")
-MODEL = os.getenv('MODEL', "deepseek-r1:1.5b-qwen-distill-fp16")
-MODEL_TEMPERATURE = os.getenv('MODEL_TEMPERATURE', 0.5)
 
-print('Parameters: OPENAI_API_URL:', OPENAI_API_URL,
-      ', MODEL:', MODEL,
-      ', MODEL_TEMPERATURE:', MODEL_TEMPERATURE)
+
+def fetch_models():
+    """Fetch available models."""
+    url = f"{OPENAI_API_URL}/models"
+    response = requests.get(url)
+    if response.status_code == 200:
+        r = response.json()
+        model_list = []
+        for model in r["data"]:
+            model_list.append(model["id"])
+        return model_list
+    raise Exception(
+        "Failed to fetch models. Status code: {}".format(response.status_code))
+
+
+# Get available models
+models = fetch_models()
 
 client = AsyncOpenAI(base_url=OPENAI_API_URL, api_key=OPENAI_API_KEY)
 cl.instrument_openai()
 
-settings = {
-    "model": MODEL,
-    "temperature": float(MODEL_TEMPERATURE),
-    # "max_tokens": 500,
-    # "top_p": 1,
-    # "frequency_penalty": 0,
-    # "presence_penalty": 0,
-}
+message_history = []
 
 
-@ cl.on_chat_start
-def start_chat():
+@cl.on_chat_start
+async def start():
     cl.user_session.set(
         "message_history",
         [{"role": "system", "content": "You are a helpful assistant."}],
     )
+
+    settings = await cl.ChatSettings(
+        [
+            Select(
+                id="model",
+                label="Model",
+                values=models,
+                initial_index=0,
+            ),
+            Slider(
+                id="temperature",
+                label="Model Temperature",
+                initial=0.2,
+                min=0,
+                max=2,
+                step=0.1,
+            ),
+        ]
+    ).send()
+    cl.user_session.set("settings", settings)
+    await update_settings(settings)
+
+
+@cl.on_settings_update
+async def update_settings(settings):
+    cl.user_session.set("settings", settings)
+    print("Model settings updated:", settings)
 
 
 @ cl.on_message
 async def main(message: cl.Message):
     message_history = cl.user_session.get("message_history")
     message_history.append({"role": "user", "content": message.content})
-
+    settings = cl.user_session.get("settings")
     msg = cl.Message(content="")
     await msg.send()
 
