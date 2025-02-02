@@ -1,3 +1,5 @@
+[![Build & Push Release](https://github.com/apider-coding/cl-chat/actions/workflows/release.yaml/badge.svg)](https://github.com/apider-coding/cl-chat/actions/workflows/release.yaml)
+
 # cl-chat
 
 This is a streaming chat app built using chainlit and local [ollama](https://ollama.ai) as default for inference backend. 
