@@ -73,9 +73,15 @@ async def start():
 async def update_settings(settings):
     cl.user_session.set("settings", settings)
     print("Model settings updated:", settings)
-    text = f"{len(models)} models available \nUsing model: {
-        settings['model']} \nModel temperature: {settings['temperature']}"
-    await cl.Message(content=text).send()
+
+    elements = [
+        cl.Text(name=f"{settings['model']}",
+                content=f"Temperature: {settings['temperature']}", display="inline")
+    ]
+    await cl.Message(
+        content=f"Selected model & settings. ({len(models)} models available)",
+        elements=elements,
+    ).send()
 
 
 @ cl.on_message
