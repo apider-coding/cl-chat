@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/apider-coding/cl-chat/compare/v1.0.26...v1.1.0) (2025-02-02)
+
+
+### Features
+
+* fetch models from endpoint and add settigs for model & temp ([426b4da](https://github.com/apider-coding/cl-chat/commit/426b4dabbd5a5de219f735452d393a197a22ada6))
+
 ### [1.0.26](https://github.com/apider-coding/cl-chat/compare/v1.0.25...v1.0.26) (2025-02-01)
 
 
