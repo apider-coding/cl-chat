@@ -21,12 +21,18 @@ def fetch_models():
         for model in r["data"]:
             model_list.append(model["id"])
         return model_list
-    raise Exception(
-        "Failed to fetch models. Status code: {}".format(response.status_code))
+    raise Exception()
 
 
 # Get available models
-models = fetch_models()
+try:
+    models = fetch_models()
+    print(f"Successfully fetched models from {
+          OPENAI_API_URL}/models, Models count: {len(models)}")
+except Exception as e:
+    print(f"Error fetching models from {OPENAI_API_URL}/models")
+    print(e)
+    exit(1)
 
 client = AsyncOpenAI(base_url=OPENAI_API_URL, api_key=OPENAI_API_KEY)
 cl.instrument_openai()
@@ -67,6 +73,9 @@ async def start():
 async def update_settings(settings):
     cl.user_session.set("settings", settings)
     print("Model settings updated:", settings)
+    text = f"{len(models)} models available \nUsing model: {
+        settings['model']} \nModel temperature: {settings['temperature']}"
+    await cl.Message(content=text).send()
 
 
 @ cl.on_message
