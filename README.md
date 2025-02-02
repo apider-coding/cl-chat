@@ -36,7 +36,7 @@ chainlit run app.py
 
 Access the app on: http://localhost:8000/
 
-### with docker
+### With Docker Desktop
 Build the container image
 
 ```bash
