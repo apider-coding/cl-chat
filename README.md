@@ -1,12 +1,12 @@
 # cl-chat
 
-This is a streaming chat app using chainlit and local [ollama](https://ollama.ai) as default for inference backend. 
+This is a streaming chat app built using chainlit and local [ollama](https://ollama.ai) as default for inference backend. 
 
 Any OpenAI API compatible backend can be used instead of ollama.
 
-Upon start the app will pull available models from `OPENAI_API_URL`/models. It will set the default to the first model in the list.
+Upon start the app will pull available models from `OPENAI_API_URL`/models endpoint. The default will be the first model found in the list.
 
-You can select model & temperature from shat settings box (to tle left in the text input box).
+You can select model & temperature from the settings box (to the left in the text input box).
 
 ### Environment variables
 - `OPENAI_API_URL` - The backend to use, default value is: `http://localhost:11434/v1` - If running in Docker Desktop use: `http://host.docker.internal:11434/v1`
