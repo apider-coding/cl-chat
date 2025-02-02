@@ -1,6 +1,6 @@
 {
   "name": "cl-chat",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A simple chanlit inference app",
   "main": "app.py",
   "scripts": {
