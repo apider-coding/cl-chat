@@ -2,7 +2,7 @@
 
 # cl-chat
 
-This is a streaming chat app built using chainlit and local [ollama](https://ollama.ai) as default for inference backend. 
+This is a streaming chat app built using chainlit and local [ollama](https://ollama.ai) as inference backend. 
 
 Any OpenAI API compatible backend can be used instead of ollama.
 
