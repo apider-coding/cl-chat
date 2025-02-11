@@ -4,8 +4,8 @@ from openai import OpenAI
 
 # Modify OpenAI's API key and API base to use vLLM's API server.
 openai_api_key = "EMPTY"
-openai_api_base = "http://192.168.1.62:11434/v1"
-# openai_api_base = "http://192.168.1.62:30000/v1"
+# openai_api_base = "http://192.168.1.62:11434/v1"
+openai_api_base = "http://192.168.1.62:30000/v1"
 # openai_api_base = "http://host.docker.internal:30000/v1"
 
 client = OpenAI(
