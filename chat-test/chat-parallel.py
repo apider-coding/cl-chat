@@ -7,8 +7,8 @@ import os
 
 # Make sure the API key is available as an environment variable.
 openai_api_key = os.environ.get("OPENAI_API_KEY", "EMPTY")
-openai_api_base = "http://192.168.1.62:11434/v1"
-# openai_api_base = "http://192.168.1.62:30000/v1"
+# openai_api_base = "http://192.168.1.62:11434/v1"
+openai_api_base = "http://192.168.1.62:30000/v1"
 # openai_api_base = "http://host.docker.internal:30000/v1"
 
 client = AsyncOpenAI(
