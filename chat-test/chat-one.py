@@ -4,7 +4,8 @@ from openai import OpenAI
 
 # Modify OpenAI's API key and API base to use vLLM's API server.
 openai_api_key = "EMPTY"
-openai_api_base = "http://host.docker.internal:30000/v1"
+openai_api_base = "http://192.168.1.62:30000/v1"
+# openai_api_base = "http://host.docker.internal:30000/v1"
 
 client = OpenAI(
     # defaults to os.environ.get("OPENAI_API_KEY")
@@ -21,7 +22,7 @@ chat_completion = client.chat.completions.create(
         "content": "You are a helpful assistant."
     }, {
         "role": "user",
-        "content": "Tell me a story of 2000 words"
+        "content": "Tell me a long, very long, story of 10000 words"
     }, ],
     model=model,
 )
