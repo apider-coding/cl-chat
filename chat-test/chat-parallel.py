@@ -65,7 +65,7 @@ async def main():
     prompt = "Explain the concept of asynchronous programming."
 
     # Create a list of 32 asynchronous tasks to fetch responses concurrently
-    tasks = [fetch_completion(prompt, model_id) for _ in range(1)]
+    tasks = [fetch_completion(prompt, model_id) for _ in range(16)]
 
     # Wait for all tasks to complete
     results = await asyncio.gather(*tasks)
