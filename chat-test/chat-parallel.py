@@ -64,10 +64,11 @@ async def main():
     print('URL: ', openai_api_base)
     print('Model:', model_id)
     # Define your prompt (you could vary the prompt if needed)
-    prompt = "Explain the concept of asynchronous programming."
+    # prompt = "Explain the concept of asynchronous programming."
+    prompt = "Tell me a story about a fox."
 
     # Create a list of 32 asynchronous tasks to fetch responses concurrently
-    tasks = [fetch_completion(prompt, model_id) for _ in range(16)]
+    tasks = [fetch_completion(prompt, model_id) for _ in range(32)]
 
     # Wait for all tasks to complete
     results = await asyncio.gather(*tasks)
