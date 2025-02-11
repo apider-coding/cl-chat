@@ -56,6 +56,7 @@ async def fetch_completion(prompt: str, model: str):
 
 async def main():
     model_id = await get_first_model_id()
+    print('Model:', model_id)
     if model_id is None:
         print("No model found.")
         return
