@@ -6,17 +6,19 @@ import time
 import os
 import sys
 
-if len(sys.argv) < 2:
-    print("Provide number of parallel request as first argument.")
-    print(f"Example: {sys.argv[0]} 8")
+if len(sys.argv) < 3:
+    print("Provide model as first and number of parallel request as second argument.")
+    print(f"Example: {sys.argv[0]} modelname 8")
     exit(1)
-REQUESTS = int(sys.argv[1])
+MODEL = sys.argv[1]
+REQUESTS = int(sys.argv[2])
 
 # Make sure the API key is available as an environment variable.
 openai_api_key = os.environ.get("OPENAI_API_KEY", "EMPTY")
 # openai_api_base = "http://192.168.1.62:11434/v1"
 # openai_api_base = "http://192.168.1.62:30000/v1"
-openai_api_base = "http://serv4.home:30000/v1"
+# openai_api_base = "http://serv4.home:30000/v1"
+openai_api_base = "http://serv4.home:11434/v1"
 # openai_api_base = "http://host.docker.internal:30000/v1"
 
 client = AsyncOpenAI(
@@ -28,21 +30,22 @@ client = AsyncOpenAI(
 # model = models.data[0].id
 
 
-async def get_first_model_id():
-    # Asynchronously iterate through the paginator to get the first model
-    async for model in client.models.list():
-        return model.id
-    return None
+# async def get_first_model_id():
+#     # Asynchronously iterate through the paginator to get the first model
+#     async for model in client.models.list():
+#         return model.id
+#     return None
 
 
-async def fetch_completion(prompt: str, model: str):
+async def fetch_completion(prompt: str, model_id: str):
     # Record the start time
     start_time = time.time()
 
     # Make an asynchronous API call.
     # Use acreate instead of create to enable asynchronous behavior.
     response = await client.chat.completions.create(
-        model=model,
+        model=model_id,
+        max_tokens=500,
         messages=[{"role": "user", "content": prompt}],
     )
 
@@ -63,11 +66,11 @@ async def fetch_completion(prompt: str, model: str):
 
 
 async def main():
-    model_id = await get_first_model_id()
+    model_id = MODEL
 
-    if model_id is None:
-        print("No model found.")
-        return
+    # if model_id is None:
+    #     print("No model found.")
+    #     return
 
     print('URL: ', openai_api_base)
     print('Model:', model_id)
