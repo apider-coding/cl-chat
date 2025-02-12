@@ -4,11 +4,19 @@ import asyncio
 from openai import AsyncOpenAI
 import time
 import os
+import sys
+
+if len(sys.argv) < 2:
+    print("Provide number of parallel request as first argument.")
+    print(f"Example: {sys.argv[0]} 8")
+    exit(1)
+REQUESTS = int(sys.argv[1])
 
 # Make sure the API key is available as an environment variable.
 openai_api_key = os.environ.get("OPENAI_API_KEY", "EMPTY")
 # openai_api_base = "http://192.168.1.62:11434/v1"
-openai_api_base = "http://192.168.1.62:30000/v1"
+# openai_api_base = "http://192.168.1.62:30000/v1"
+openai_api_base = "http://serv4.home:30000/v1"
 # openai_api_base = "http://host.docker.internal:30000/v1"
 
 client = AsyncOpenAI(
@@ -63,12 +71,13 @@ async def main():
 
     print('URL: ', openai_api_base)
     print('Model:', model_id)
+    print('Parallel Requests:', REQUESTS)
     # Define your prompt (you could vary the prompt if needed)
     # prompt = "Explain the concept of asynchronous programming."
     prompt = "Tell me a story about a fox."
 
     # Create a list of 32 asynchronous tasks to fetch responses concurrently
-    tasks = [fetch_completion(prompt, model_id) for _ in range(32)]
+    tasks = [fetch_completion(prompt, model_id) for _ in range(REQUESTS)]
 
     # Wait for all tasks to complete
     results = await asyncio.gather(*tasks)
